@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  MyStore
+
+  Created by MacbookPro on 11/3/19.
+  Copyright © 2019 MacbookPro. All rights reserved.
+*/
+"Chào mừng tới 2! Mobile" = "Welcome to 2! Mobile";
+"Chúng tôi sẽ mang tới trải nghiêm tuyệt vời" = "We will bring a great experience";
+"Đăng kí với Facebook" = "Connect with Facebook";
+"Đăng kí với Gmail" = "Connect with Gmail";
+"Khi bạn đăng kí, bạn đã chấp nhận điều khoản cuản chúng tôi" = "By signing up, you agree to our Term & Privacy policies";
+"Bạn đã có tài khoản" = "Already have an account?";
+"Đăng nhập" = "Sign In";
+"Đăng ký" = "Register";
+"Email của bạn là gì" = "What's your email address?";
+"Email" = "Email";
+"Tiếp tục" = "Next";
+"Tải hình đại diện" = "Upload a Selfie";
+"Tên đầu tiên" = "First name";
+"Tên cuối cùng" = "Last name";
+"Mật khẩu" = "Password";
+"Huỷ" = "Cancel";
+
