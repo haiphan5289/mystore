@@ -17,6 +17,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'RIBs'
+pod 'RxSwift'
 pod 'RxCocoa'
+pod 'Kingfisher'
 
 end

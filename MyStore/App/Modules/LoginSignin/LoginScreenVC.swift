@@ -50,8 +50,8 @@ final class LoginScreenVC: UIViewController, LoginScreenPresentable, LoginScreen
         super.viewDidLoad()
         visualize()
         setupRX()
-//        isLogined()
-        isSignOut()
+        isLogined()
+//        isSignOut()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

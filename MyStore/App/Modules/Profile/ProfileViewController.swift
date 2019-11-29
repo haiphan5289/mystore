@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Firebase
+import Kingfisher
 
 class ProfileViewController: UIViewController {
 
@@ -40,6 +41,13 @@ class ProfileViewController: UIViewController {
         btSignOut.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
         btChangePassword.setTitle(Text.changePassword.localizedText, for: .normal)
         btChangePassword.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
+        
+        tfEmail.text = Profile.share.email
+        tfFirstName.text = Profile.share.firstName
+        tfLastName.text = Profile.share.lastName
+        if let url = Profile.share.urlProfile {
+            self.imgProfile.kf.setImage(with: URL(string: url))
+        }
         
     }
     private func setupRX() {

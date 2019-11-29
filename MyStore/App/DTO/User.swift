@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct User: Codable {
     let id: String?
@@ -26,7 +27,7 @@ struct User: Codable {
     }
 
 }
-struct UserFireBase: Codable {
+struct UserFireBase {
     let id: String?
     let password: String?
     let firstName: String?
@@ -34,21 +35,48 @@ struct UserFireBase: Codable {
     let urlProfile: String?
     let email: String?
     
-    enum Codingkeys: String, CodingKey {
-        case id = "id"
-        case firstName = "firstName"
-        case lastName = "lastName"
-        case urlProfile = "urlProfile"
-        case password = "password"
+    init(id: String, password: String, firstName: String, lastName: String, urlProfile: String, email: String) {
+        self.id = id
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.urlProfile = urlProfile
+        self.email = email
     }
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decode(String.self, forKey: .id)
-        password = try values.decode(String.self, forKey: .password)
-        firstName = try values.decode(String.self, forKey: .firstName)
-        lastName = try values.decode(String.self, forKey: .lastName)
-        urlProfile = try values.decode(String.self, forKey: .urlProfile)
-        email = try values.decode(String.self, forKey: .email)
-        
+    init(snapshot: DataSnapshot) {
+        let temp = snapshot.value as? [String: Any]
+        self.id = temp?["id"] as? String
+        self.password = temp?["password"] as? String
+        self.firstName = temp?["firstName"] as? String
+        self.lastName = temp?["lastName"] as? String
+        self.urlProfile = temp?["urlProfile"] as? String
+        self.email = temp?["email"] as? String
     }
+    
 }
+//struct UserFireBase: Codable {
+//    let id: String?
+//    let password: String?
+//    let firstName: String?
+//    let lastName: String?
+//    let urlProfile: String?
+//    let email: String?
+//
+//    enum Codingkeys: String, CodingKey {
+//        case id = "id"
+//        case firstName = "firstName"
+//        case lastName = "lastName"
+//        case urlProfile = "urlProfile"
+//        case password = "password"
+//    }
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        id = try values.decode(String.self, forKey: .id)
+//        password = try values.decode(String.self, forKey: .password)
+//        firstName = try values.decode(String.self, forKey: .firstName)
+//        lastName = try values.decode(String.self, forKey: .lastName)
+//        urlProfile = try values.decode(String.self, forKey: .urlProfile)
+//        email = try values.decode(String.self, forKey: .email)
+//
+//    }
+//}

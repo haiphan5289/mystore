@@ -13,6 +13,17 @@ import UIKit
 import SnapKit
 import Photos
 
+enum FirebaseTable {
+    case users
+    
+    func getTableUser() -> String {
+        switch self {
+        case .users:
+            return "Users"
+        }
+    }
+}
+
 class fw {
     static let share = fw()
     var dataBase = Database.database().reference()
