@@ -13,6 +13,8 @@ import RxSwift
 protocol LoginScreenRouting: ViewableRouting {
     // todo: Declare methods the interactor can invoke to manage sub-tree via the router.
     func routeToRegisterEmail()
+    func routeToSignIn()
+    func routeToTabbar()
 }
 
 protocol LoginScreenPresentable: Presentable {
@@ -58,6 +60,15 @@ extension LoginScreenInteractor: LoginScreenInteractable {
 
 // MARK: LoginScreenPresentableListener's members
 extension LoginScreenInteractor: LoginScreenPresentableListener {
+    func routeToTabbar() {
+        router?.routeToTabbar()
+    }
+    
+    
+    func routeToSignIn(){
+        router?.routeToSignIn()
+    }
+    
     func routeToRegisterEmail(){
         router?.routeToRegisterEmail()
     }

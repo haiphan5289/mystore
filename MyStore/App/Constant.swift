@@ -30,7 +30,7 @@ enum Constant: Int {
 }
 
 enum CustomColor {
-    case blue, green, black, grey
+    case blue, green, black, grey, orage, white
     
     func getColor() -> UIColor {
         switch self {
@@ -42,6 +42,10 @@ enum CustomColor {
             return UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
         case .grey:
             return UIColor(red: 99/255, green: 114/255, blue: 128/255, alpha: 1)
+        case .orage:
+            return UIColor(red: 238/255, green: 82/255, blue: 32/255, alpha: 1)
+        case .white:
+            return UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1)
         }
     }
 }

@@ -23,10 +23,16 @@ protocol RegisterProfilePresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     var emailObs: Observable<String> {get}
-//    var emailPu: PublishSubject<String> {get}
+    func routeToTabbar()
 }
 
 final class RegisterProfileVC: UIViewController, RegisterProfilePresentable, RegisterProfileViewControllable {
+    
+    func present(viewController: ViewControllable) {
+//        self.navigationController?.pushViewController(viewController.uiviewController, animated: true)
+        self.present(viewController.uiviewController, animated: true, completion: nil)
+    }
+    
     private struct Config {
     }
     
@@ -85,27 +91,52 @@ private extension RegisterProfileVC {
         textFieldPassword.placeholder = Text.password.localizedText
         btRegister.setTitle(Text.register.localizedText, for: .normal)
         btRegister.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
-        btRegister.isEnabled = false
+        btRegister.isEnabled = true
         btRegister.backgroundColor = CustomColor.grey.getColor()
+        btRegister.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
     }
     private func visualize() {
         // todo: Visualize view's here.
     }
     private func setupRX() {
-        textFieldFirstName.rx.text.orEmpty.bind { [weak self] (text) in
-            self?.isFirstName = (text.count > 0) ? true : false
-            self?.validShowButtonRegister()
+//        textFieldFirstName.rx.text.orEmpty.bind { [weak self] (text) in
+//            self?.isFirstName = (text.count > 0) ? true : false
+//            self?.validShowButtonRegister()
+//        }.disposed(by: disposeBag)
+        //        textFieldLastName.rx.text.orEmpty.bind { [weak self] (text) in
+        //            self?.isLastName = (text.count > 0) ? true : false
+        //            self?.validShowButtonRegister()
+        //            }.disposed(by: disposeBag)
+        //
+        //        textFieldPassword.rx.text.orEmpty.bind { [weak self] (text) in
+        //            self?.isPassword = (text.count > 0) ? true : false
+        //            self?.validShowButtonRegister()
+        //            }.disposed(by: disposeBag)
+        let isFirstName = textFieldFirstName.rx.text.orEmpty.map { (s1) -> Bool in
+            return s1.count > 0
+        }
+        let isLastName = textFieldLastName.rx.text.orEmpty.map { (s1) -> Bool in
+            return s1.count > 0
+        }
+        let isPassword = textFieldPassword.rx.text.orEmpty.map { (s1) -> Bool in
+            return s1.count >= 6
+        }
+        
+        let isButtonRegisterEnable = Observable.combineLatest(isFirstName, isLastName, isPassword) { (s1, s2, s3) in
+            return s1 && s2 && s3
+        }
+        isButtonRegisterEnable.bind { [weak self] enable in
+            guard let me = self else { return}
+            if enable {
+                me.btRegister.isEnabled = true
+                me.btRegister.backgroundColor = CustomColor.green.getColor()
+            } else {
+                me.btRegister.isEnabled = true
+                me.btRegister.backgroundColor = CustomColor.grey.getColor()
+            }
         }.disposed(by: disposeBag)
         
-        textFieldLastName.rx.text.orEmpty.bind { [weak self] (text) in
-            self?.isLastName = (text.count > 0) ? true : false
-            self?.validShowButtonRegister()
-            }.disposed(by: disposeBag)
-        
-        textFieldPassword.rx.text.orEmpty.bind { [weak self] (text) in
-            self?.isPassword = (text.count > 0) ? true : false
-            self?.validShowButtonRegister()
-            }.disposed(by: disposeBag)
+
         
         btRegister.rx.tap.bind { _ in
             let alert = self.showLoading()
@@ -116,30 +147,32 @@ private extension RegisterProfileVC {
                 Auth.auth().createUser(withEmail: email, password: password, completion: { (data, err) in
                     if let err = err {
                         print(err.localizedDescription)
-                    } else {}
-                })
-                // Create a reference to the file you want to upload
-                alert.dismiss(animated: true, completion: {
-                    DispatchQueue.main.async {
-                        if let currentUser = Auth.auth().currentUser {
-                            let ref = fw.share.storage.child("imagesProfiles/\(email).jpg")
-                            let _ = ref.putData(self.imageData, metadata: nil) { (metadata, error) in
-                                ref.downloadURL { (url, error) in
-                                    guard let downloadURL = url?.absoluteString else {
-                                        return
-                                    }
-                                    let tableUser = fw.share.dataBase.child("Users").child(currentUser.uid)
-                                    let infoUser: Dictionary<String,Any> = ["id": currentUser.uid,
-                                                                            "email": email,
-                                                                            "firstName": firstName,
-                                                                            "lastName": lastName,
-                                                                            "urlProfile": downloadURL]
-                                    tableUser.setValue(infoUser)
+                    } else {
+                        let current = Auth.auth().currentUser
+                        let ref = fw.share.storage.child("imagesProfiles/\(email).jpg")
+                        let _ = ref.putData(self.imageData, metadata: nil) { (metadata, error) in
+                            ref.downloadURL { (url, error) in
+                                guard let downloadURL = url?.absoluteString else {
+                                    return
                                 }
+                                let tableUser = fw.share.dataBase.child("Users").child(current!.uid)
+                                let infoUser: Dictionary<String,Any> = ["id": current?.uid,
+                                                                        "email": email,
+                                                                        "firstName": firstName,
+                                                                        "lastName": lastName,
+                                                                        "urlProfile": downloadURL,
+                                                                        "password": password]
+                                tableUser.setValue(infoUser)
+                                alert.dismiss(animated: true, completion: {
+                                    self.listener?.routeToTabbar()
+                                })
+        
                             }
                         }
                     }
                 })
+                // Create a reference to the file you want to upload
+//                alert.dismiss(animated: true, completion: nil)
             }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
         
@@ -188,7 +221,7 @@ private extension RegisterProfileVC {
             btRegister.isEnabled = true
             btRegister.backgroundColor = CustomColor.green.getColor()
         } else {
-            btRegister.isEnabled = false
+            btRegister.isEnabled = true
             btRegister.backgroundColor = CustomColor.grey.getColor()
         }
     }

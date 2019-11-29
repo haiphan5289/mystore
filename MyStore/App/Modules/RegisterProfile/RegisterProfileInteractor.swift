@@ -12,6 +12,7 @@ import RxSwift
 
 protocol RegisterProfileRouting: ViewableRouting {
     // todo: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeToTabbar()
 }
 
 protocol RegisterProfilePresentable: Presentable {
@@ -58,13 +59,14 @@ extension RegisterProfileInteractor: RegisterProfileInteractable {
 
 // MARK: RegisterProfilePresentableListener's members
 extension RegisterProfileInteractor: RegisterProfilePresentableListener {
+    func routeToTabbar() {
+        self.router?.routeToTabbar()
+    }
+    
     
     var emailObs: Observable<String> {
         return self.emailSubject.asObservable()
     }
-//    var emailPu: PublishSubject<String> {
-//        return self.emailSubject.onNext(email)
-//    }
     
 }
 

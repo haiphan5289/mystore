@@ -184,6 +184,78 @@
             </objects>
             <point key="canvasLocation" x="-458.39999999999998" y="69.715142428785612"/>
         </scene>
+        <!--Sign InVC-->
+        <scene sceneID="337-Bx-Pcc">
+            <objects>
+                <viewController storyboardIdentifier="SignInVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S8q-rm-eWq" customClass="SignInVC" customModule="MyStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i4v-Fv-KaI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RjK-DG-jeA">
+                                <rect key="frame" x="16" y="40" width="343" height="82"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kdt-00-Eyf">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                        <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdu-dd-Jph">
+                                        <rect key="frame" x="0.0" y="46" width="343" height="36"/>
+                                        <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="uWJ-YK-L3i"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxp-y3-3il">
+                                <rect key="frame" x="169" y="132" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bY-sW-7eB">
+                                <rect key="frame" x="137.5" y="611" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="bIJ-9H-i7b"/>
+                                    <constraint firstAttribute="height" constant="40" id="dx6-Lm-DQU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nxp-y3-3il" firstAttribute="centerX" secondItem="7eL-NM-Yj9" secondAttribute="centerX" id="2mU-29-T4e"/>
+                            <constraint firstItem="Nxp-y3-3il" firstAttribute="top" secondItem="RjK-DG-jeA" secondAttribute="bottom" constant="10" id="6sv-Qs-lLL"/>
+                            <constraint firstItem="RjK-DG-jeA" firstAttribute="leading" secondItem="7eL-NM-Yj9" secondAttribute="leading" constant="16" id="Coi-o4-h12"/>
+                            <constraint firstItem="7eL-NM-Yj9" firstAttribute="trailing" secondItem="RjK-DG-jeA" secondAttribute="trailing" constant="16" id="Pgw-WB-yAL"/>
+                            <constraint firstItem="7eL-NM-Yj9" firstAttribute="bottom" secondItem="7bY-sW-7eB" secondAttribute="bottom" constant="16" id="cI7-Zc-g0a"/>
+                            <constraint firstItem="7bY-sW-7eB" firstAttribute="centerX" secondItem="7eL-NM-Yj9" secondAttribute="centerX" id="d7t-qb-9tI"/>
+                            <constraint firstItem="RjK-DG-jeA" firstAttribute="top" secondItem="7eL-NM-Yj9" secondAttribute="top" constant="20" id="jXd-xm-z5H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7eL-NM-Yj9"/>
+                    </view>
+                    <connections>
+                        <outlet property="btSignIn" destination="7bY-sW-7eB" id="giJ-kw-hip"/>
+                        <outlet property="lbForgotPassword" destination="Nxp-y3-3il" id="Zx9-rP-ZRK"/>
+                        <outlet property="tfEmail" destination="kdt-00-Eyf" id="RPq-wK-PlV"/>
+                        <outlet property="tfPassword" destination="jdu-dd-Jph" id="K5X-GM-FGc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJc-1w-3C2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-460" y="746"/>
+        </scene>
         <!--Register EmailVC-->
         <scene sceneID="EIC-Cq-djx">
             <objects>
@@ -341,7 +413,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDK-Q0-6qj">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDK-Q0-6qj">
                                 <rect key="frame" x="167.5" y="50" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="f5V-FD-mG2"/>
@@ -381,6 +453,6 @@
     </scenes>
     <resources>
         <image name="camera" width="50" height="50"/>
-        <image name="plus" width="40" height="40"/>
+        <image name="plus" width="20" height="20"/>
     </resources>
 </document>

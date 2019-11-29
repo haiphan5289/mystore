@@ -9,7 +9,7 @@
 
 import RIBs
 
-protocol LoginScreenInteractable: Interactable, RegisterEmailListener {
+protocol LoginScreenInteractable: Interactable, RegisterEmailListener, SignInListener, TabbarListener {
     var router: LoginScreenRouting? { get set }
     var listener: LoginScreenListener? { get set }
 }
@@ -23,7 +23,11 @@ final class LoginScreenRouter: ViewableRouter<LoginScreenInteractable, LoginScre
     /// Class's constructor.
     init(interactor: LoginScreenInteractable,
                   viewController: LoginScreenViewControllable,
-                  registerEmailBuildable: RegisterEmailBuildable) {
+                  registerEmailBuildable: RegisterEmailBuildable,
+                  signInBuildable: SignInBuildable,
+                  tabbarBuildable: TabbarBuildable) {
+        self.tabbarBuildable = tabbarBuildable
+        self.signInBuildable = signInBuildable
         self.registerEmailBuildable = registerEmailBuildable
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
@@ -35,18 +39,38 @@ final class LoginScreenRouter: ViewableRouter<LoginScreenInteractable, LoginScre
     }
     private let registerEmailBuildable: RegisterEmailBuildable
     private var registerEmail: ViewableRouting?
+    private var signInBuildable: SignInBuildable
+    private let tabbarBuildable: TabbarBuildable
     
     /// Class's private properties.
 }
 
 // MARK: LoginScreenRouting's members
 extension LoginScreenRouter: LoginScreenRouting {
+    
+    func routeToTabbar() {
+        let route = tabbarBuildable.build(withListener: interactor)
+        self.registerEmail = route
+        attachChild(route)
+        let navigation = UINavigationController(root: route.viewControllable)
+        viewController.present(viewController: navigation)
+    }
+    
     func routeToRegisterEmail() {
         let registerEmail = registerEmailBuildable.build()
         self.registerEmail = registerEmail
         attachChild(registerEmail)
         let navigation = UINavigationController(root: registerEmail.viewControllable)
         viewController.present(viewController: navigation)
+    }
+    
+    func routeToSignIn(){
+        let signIn = signInBuildable.build(withListener: interactor)
+        self.registerEmail = signIn
+        attachChild(signIn)
+        let navigation = UINavigationController(root: signIn.viewControllable)
+        viewController.present(viewController: navigation)
+        
     }
 }
 

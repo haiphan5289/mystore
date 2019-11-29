@@ -48,11 +48,14 @@ final class LoginScreenBuilder: Builder<LoginScreenDependency>, LoginScreenBuild
         let interactor = LoginScreenInteractor(presenter: component.LoginScreenVC)
 //        interactor.listener = listener
         let registerEmailBuilder = RegisterEmailBuilder(dependency: component)
-
+        let signInBuilder = SignInBuilder(dependency: component)
+        let tabbarBuilder = TabbarBuilder(dependency: component)
         // todo: Create builder modules builders and inject into router here.
         
         return LoginScreenRouter(interactor: interactor,
                                  viewController: component.LoginScreenVC,
-                                 registerEmailBuildable: registerEmailBuilder)
+                                 registerEmailBuildable: registerEmailBuilder,
+                                 signInBuildable: signInBuilder,
+                                 tabbarBuildable: tabbarBuilder)
     }
 }

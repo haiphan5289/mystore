@@ -45,10 +45,11 @@ final class RegisterProfileBuilder: Builder<RegisterProfileDependency>, Register
         let component = RegisterProfileComponent(dependency: dependency, RegisterProfileVC: vc)
 
         let interactor = RegisterProfileInteractor(presenter: component.RegisterProfileVC, email: email)
+        let tabbarBuilder = TabbarBuilder(dependency: component)
 //        interactor.listener = listener
 
         // todo: Create builder modules builders and inject into router here.
         
-        return RegisterProfileRouter(interactor: interactor, viewController: component.RegisterProfileVC)
+        return RegisterProfileRouter(interactor: interactor, viewController: component.RegisterProfileVC, tabbarBuildable: tabbarBuilder)
     }
 }

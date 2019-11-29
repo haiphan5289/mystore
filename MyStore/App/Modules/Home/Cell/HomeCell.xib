@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HomeCell" customModule="MyStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hoM-3V-Rvp">
+                        <rect key="frame" x="16" y="12" width="63" height="63"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.32156862749999998" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="63" id="ZEe-gZ-GTm"/>
+                            <constraint firstAttribute="height" constant="63" id="yba-30-BEw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IPHONE 7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ3-dy-GhH">
+                        <rect key="frame" x="95" y="12" width="205" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="bG7-dR-baJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lê quang định" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAS-xe-iLM">
+                        <rect key="frame" x="95" y="35" width="205" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="9cS-w1-NcH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.38823529411764707" green="0.44705882352941173" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111100000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwp-7U-RLt">
+                        <rect key="frame" x="95" y="59" width="205" height="16"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <color key="textColor" red="0.93333333333333335" green="0.32156862745098036" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Lwp-7U-RLt" firstAttribute="leading" secondItem="XAS-xe-iLM" secondAttribute="leading" id="1rv-5Q-Cfb"/>
+                    <constraint firstItem="LZ3-dy-GhH" firstAttribute="leading" secondItem="hoM-3V-Rvp" secondAttribute="trailing" constant="16" id="1xP-oa-yqo"/>
+                    <constraint firstAttribute="trailing" secondItem="Lwp-7U-RLt" secondAttribute="trailing" constant="20" id="Dig-ks-vVu"/>
+                    <constraint firstItem="Lwp-7U-RLt" firstAttribute="bottom" secondItem="hoM-3V-Rvp" secondAttribute="bottom" id="FLx-jG-gOl"/>
+                    <constraint firstAttribute="trailing" secondItem="LZ3-dy-GhH" secondAttribute="trailing" constant="20" id="KNz-kf-6mq"/>
+                    <constraint firstItem="hoM-3V-Rvp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="N5H-hE-p3U"/>
+                    <constraint firstAttribute="trailing" secondItem="XAS-xe-iLM" secondAttribute="trailing" constant="20" id="WWZ-mn-ZJe"/>
+                    <constraint firstItem="XAS-xe-iLM" firstAttribute="top" secondItem="LZ3-dy-GhH" secondAttribute="bottom" constant="4" id="blz-bW-PwT"/>
+                    <constraint firstItem="XAS-xe-iLM" firstAttribute="leading" secondItem="LZ3-dy-GhH" secondAttribute="leading" id="cm6-jb-jkX"/>
+                    <constraint firstItem="hoM-3V-Rvp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qrH-80-AdP"/>
+                    <constraint firstItem="LZ3-dy-GhH" firstAttribute="top" secondItem="hoM-3V-Rvp" secondAttribute="top" id="sIg-qw-Gbl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="34.782608695652179" y="34.486607142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="camera" width="50" height="50"/>
+    </resources>
+</document>

@@ -34,19 +34,21 @@ struct UserFireBase: Codable {
     let urlProfile: String?
     let email: String?
     
-//    enum Codingkeys: String, CodingKey {
-//        case id = "id"
-//        case firstName = "firstName"
-//        case lastName = "lastName"
-//        case urlProfile = "urlProfile"
-//    }
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        id = try values.decode(String.self, forKey: .id)
-//        password = try values.decode(String.self, forKey: .password)
-//        firstName = try values.decode(String.self, forKey: .firstName)
-//        lastName = try values.decode(String.self, forKey: .lastName)
-//        urlProfile = try values.decode(String.self, forKey: .urlProfile)
-//        
-//    }
+    enum Codingkeys: String, CodingKey {
+        case id = "id"
+        case firstName = "firstName"
+        case lastName = "lastName"
+        case urlProfile = "urlProfile"
+        case password = "password"
+    }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
+        password = try values.decode(String.self, forKey: .password)
+        firstName = try values.decode(String.self, forKey: .firstName)
+        lastName = try values.decode(String.self, forKey: .lastName)
+        urlProfile = try values.decode(String.self, forKey: .urlProfile)
+        email = try values.decode(String.self, forKey: .email)
+        
+    }
 }

@@ -13,12 +13,15 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import RxSwift
 import RxCocoa
+import Firebase
 
 protocol LoginScreenPresentableListener: class {
     // todo: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     func routeToRegisterEmail()
+    func routeToSignIn()
+    func routeToTabbar()
 }
 
 final class LoginScreenVC: UIViewController, LoginScreenPresentable, LoginScreenViewControllable {
@@ -47,6 +50,8 @@ final class LoginScreenVC: UIViewController, LoginScreenPresentable, LoginScreen
         super.viewDidLoad()
         visualize()
         setupRX()
+//        isLogined()
+        isSignOut()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -111,6 +116,25 @@ private extension LoginScreenVC {
         self.btRegisterGmail.rx.tap.bind { _ in
             self.listener?.routeToRegisterEmail()
         }.disposed(by: disposeBag)
+        
+        self.btSignIn.rx.tap.bind { _ in
+            self.listener?.routeToSignIn()
+        }.disposed(by: disposeBag)
+    }
+    private func isLogined() {
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.listener?.routeToTabbar()
+            }
+        }
+    }
+    private func isSignOut(){
+        do {
+            try Auth.auth().signOut()
+        } catch let err as Error {
+            print(err.localizedDescription)
+        }
+        
     }
 }
 extension LoginScreenVC {

@@ -12,6 +12,7 @@ enum Text: String {
     case alreadyAccount = "Bạn đã có tài khoản"
     //c
     case cancel = "Huỷ"
+    case changePassword = "Đổi mật khẩu"
     //d
     case desSlogan = "Chúng tôi sẽ mang tới trải nghiêm tuyệt vời"
     case desPolicies = "Khi bạn đăng kí, bạn đã chấp nhận điều khoản cuản chúng tôi"
@@ -19,14 +20,21 @@ enum Text: String {
     case email = "Email"
     //f
     case firstName = "Tên đầu tiên"
+    case forgotYourPassword = "Quên mật khẩu"
+    //h
+    case home = "Trang chủ"
     //l
     case lastName = "Tên cuối cùng"
     //n
     case next = "Tiếp tục"
     case namePictureProfile = "Tải hình đại diện"
+    case notification = "Thông báo"
     //m
+    case message = "Tin nhắn"
+    case myOrder = "Đơn hàng"
     //p
     case password = "Mật khẩu"
+    case profile = "Cá nhân"
     //r
     case registerWithFacebook = "Đăng kí với Facebook"
     case registerWithGmail = "Đăng kí với Gmail"
@@ -34,6 +42,8 @@ enum Text: String {
     //s
     case slogan = "Chào mừng tới 2! Mobile"
     case signIn = "Đăng nhập"
+    case somethingError = "Đã có lỗi xảy ra"
+    case signOut = "Đăng xuât"
     //y
     case yourEmail = "Email của bạn là gì"
     

@@ -24,7 +24,7 @@
 open class Component<DependencyType>: Dependency {
 
     /// The dependency of this `Component`.
-    public let dependency: DependencyType
+    open let dependency: DependencyType
 
     /// Initializer.
     ///
