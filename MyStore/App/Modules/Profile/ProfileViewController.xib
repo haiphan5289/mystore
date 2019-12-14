@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="MyStore" customModuleProvider="target">
             <connections>
                 <outlet property="btChangePassword" destination="u8t-vS-JPo" id="eWd-mH-PWS"/>
+                <outlet property="btPostProduct" destination="PpC-mw-hl3" id="pog-Se-Lxh"/>
                 <outlet property="btSignOut" destination="e61-ol-nfm" id="tQH-ba-lGc"/>
                 <outlet property="imgProfile" destination="2fc-s9-JGE" id="sAQ-GD-GsH"/>
                 <outlet property="lbEmail" destination="PDC-rD-1P9" id="XtV-Iq-nVN"/>
@@ -170,6 +171,14 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpC-mw-hl3">
+                    <rect key="frame" x="20" y="511" width="335" height="40"/>
+                    <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
@@ -179,16 +188,20 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TuT-4e-yXq" secondAttribute="trailing" id="89H-Jm-hda"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e61-ol-nfm" secondAttribute="trailing" constant="20" id="CjY-gZ-OWi"/>
                 <constraint firstItem="2fc-s9-JGE" firstAttribute="top" secondItem="TuT-4e-yXq" secondAttribute="bottom" constant="-30" id="Dhd-G9-uTP"/>
+                <constraint firstItem="u8t-vS-JPo" firstAttribute="leading" secondItem="PpC-mw-hl3" secondAttribute="leading" id="H4c-vn-tdU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wLr-Q5-YZR" secondAttribute="trailing" constant="20" id="J8K-0k-285"/>
+                <constraint firstItem="u8t-vS-JPo" firstAttribute="height" secondItem="PpC-mw-hl3" secondAttribute="height" id="JGB-yx-GKN"/>
                 <constraint firstItem="wLr-Q5-YZR" firstAttribute="top" secondItem="2fc-s9-JGE" secondAttribute="bottom" constant="10" id="RTm-FN-7Rg"/>
                 <constraint firstItem="wLr-Q5-YZR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="YaF-0x-wD1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="e61-ol-nfm" secondAttribute="bottom" constant="16" id="bdD-xM-flt"/>
+                <constraint firstItem="u8t-vS-JPo" firstAttribute="top" secondItem="PpC-mw-hl3" secondAttribute="bottom" constant="10" id="eXu-c0-Qoh"/>
                 <constraint firstItem="e61-ol-nfm" firstAttribute="trailing" secondItem="u8t-vS-JPo" secondAttribute="trailing" id="fBl-Ql-zRO"/>
                 <constraint firstItem="TuT-4e-yXq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jrK-Ln-flO"/>
                 <constraint firstItem="e61-ol-nfm" firstAttribute="height" secondItem="u8t-vS-JPo" secondAttribute="height" id="mKT-Pz-gOA"/>
                 <constraint firstItem="e61-ol-nfm" firstAttribute="leading" secondItem="u8t-vS-JPo" secondAttribute="leading" id="mNI-bd-qAH"/>
                 <constraint firstItem="e61-ol-nfm" firstAttribute="top" secondItem="u8t-vS-JPo" secondAttribute="bottom" constant="10" id="xIk-kN-IBa"/>
                 <constraint firstItem="TuT-4e-yXq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ytM-9X-U6t"/>
+                <constraint firstItem="u8t-vS-JPo" firstAttribute="trailing" secondItem="PpC-mw-hl3" secondAttribute="trailing" id="zyn-3P-58r"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>

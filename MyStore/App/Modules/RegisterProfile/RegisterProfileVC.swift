@@ -27,6 +27,10 @@ protocol RegisterProfilePresentableListener: class {
 }
 
 final class RegisterProfileVC: UIViewController, RegisterProfilePresentable, RegisterProfileViewControllable {
+    func present(viewController: ViewControllable) {
+        self.present(viewController.uiviewController, animated: true, completion: nil)
+    }
+    
     private struct Config {
     }
     

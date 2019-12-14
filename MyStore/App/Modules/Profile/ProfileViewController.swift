@@ -11,8 +11,9 @@ import RxSwift
 import RxCocoa
 import Firebase
 import Kingfisher
+import RIBs
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, PostProductListener {
 
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lbEmail: UILabel!
@@ -25,7 +26,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var btSignOut: UIButton!
     @IBOutlet weak var viewFirstName: UIView!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var btPostProduct: UIButton!
     private let disposeBag = DisposeBag()
+    private var routePostProduct: PostProductRouting?
+    private var postProductBuildable: PostProductBuildable?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRX()
@@ -41,6 +45,8 @@ class ProfileViewController: UIViewController {
         btSignOut.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
         btChangePassword.setTitle(Text.changePassword.localizedText, for: .normal)
         btChangePassword.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
+        btPostProduct.setTitle(Text.postProduct.localizedText, for: .normal)
+        btPostProduct.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
         
         tfEmail.text = Profile.share.email
         tfFirstName.text = Profile.share.firstName
@@ -64,6 +70,23 @@ class ProfileViewController: UIViewController {
         fetchProfile { (data) in
            return data
         }
+        
+        btPostProduct.rx.tap.bind { _ in
+            self.postProductBuildable = PostProductBuilder(dependency: ProfileComponent())
+            self.routePostProduct = self.postProductBuildable?.build(withListener: self)
+            self.routePostProduct?.interactable.activate()
+            self.routePostProduct?.load()
+            self.navigationController?.pushViewController((self.routePostProduct?.viewControllable.uiviewController)!, animated: true)
+        }.disposed(by: disposeBag)
+        
+        btSignOut.rx.tap.bind { _ in
+            do {
+                try Auth.auth().signOut()
+                self.dismiss(animated: true, completion: nil)
+            }catch let err as NSError {
+                self.showAlertError(errStr: err.localizedDescription)
+            }
+        }.disposed(by: disposeBag)
     }
     
     private func fetchProfile( completion: @escaping (DataSnapshot) -> DataSnapshot){
@@ -89,3 +112,31 @@ class ProfileViewController: UIViewController {
             .merge()
     }
 }
+
+protocol ProfileDependency: Dependency {
+    // todo: Declare the set of dependencies required by this RIB, but cannot be created by this RIB.
+}
+
+final class ProfileComponent: Component<EmptyComponent>, ProfileDependency {
+    /// Class's public properties.
+//    let profileVC: ProfileViewController
+    
+    /// Class's constructor.
+    init() {
+        super.init(dependency: EmptyComponent())
+    }
+    
+    /// Class's private properties.
+    // todo: Declare 'fileprivate' dependencies that are only used by this RIB.
+}
+//protocol UpdatePlaceDependency: Dependency {
+//    var authenticated: AuthenticatedStream { get }
+//}
+//final class UpdatePlaceComponent: Component<EmptyComponent>, UpdatePlaceDependency {
+//    var authenticated: AuthenticatedStream
+//
+//    init(authenticate: AuthenticatedStream) {
+//        self.authenticated = authenticate
+//        super.init(dependency: EmptyComponent())
+//    }
+//}

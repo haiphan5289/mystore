@@ -10,6 +10,8 @@ import UIKit
 
 enum Constant: Int {
     case btRadiusLogin = 20
+    case lineTextFieldBorder = 1
+    case radiusTextField = 5
     case muoi = 100
     
     var value: Int {
@@ -30,7 +32,7 @@ enum Constant: Int {
 }
 
 enum CustomColor {
-    case blue, green, black, grey, orage, white
+    case blue, green, black, grey, orage, white, greyLine
     
     func getColor() -> UIColor {
         switch self {
@@ -46,6 +48,8 @@ enum CustomColor {
             return UIColor(red: 238/255, green: 82/255, blue: 32/255, alpha: 1)
         case .white:
             return UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1)
+        case .greyLine:
+            return UIColor(red: 221/255, green: 226/255, blue: 232/255, alpha: 1)
         }
     }
 }

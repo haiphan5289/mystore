@@ -39,6 +39,14 @@
 		52402C52238D8AA30056DFE6 /* SignInComponent+Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52402C51238D8AA30056DFE6 /* SignInComponent+Tabbar.swift */; };
 		52436960238EBEC10067639A /* LoginScreenComponent+Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243695F238EBEC10067639A /* LoginScreenComponent+Tabbar.swift */; };
 		52436B7C2390D6800067639A /* ProfileStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B7B2390D6800067639A /* ProfileStream.swift */; };
+		52436B8823910E270067639A /* PostProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52436B8323910E270067639A /* PostProductVC.xib */; };
+		52436B8923910E270067639A /* PostProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B8423910E270067639A /* PostProductRouter.swift */; };
+		52436B8A23910E270067639A /* PostProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B8523910E270067639A /* PostProductBuilder.swift */; };
+		52436B8B23910E270067639A /* PostProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B8623910E270067639A /* PostProductInteractor.swift */; };
+		52436B8C23910E270067639A /* PostProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B8723910E270067639A /* PostProductVC.swift */; };
+		52436B902391173B0067639A /* ProfileViewControllerComponent+PostProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B8F2391173B0067639A /* ProfileViewControllerComponent+PostProduct.swift */; };
+		52436B94239258E30067639A /* PostProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52436B92239258E30067639A /* PostProductCell.swift */; };
+		52436B95239258E30067639A /* PostProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52436B93239258E30067639A /* PostProductCell.xib */; };
 		5245D0B22382E42900DE237D /* RegisterEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0AE2382E42900DE237D /* RegisterEmailRouter.swift */; };
 		5245D0B32382E42900DE237D /* RegisterEmailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0AF2382E42900DE237D /* RegisterEmailBuilder.swift */; };
 		5245D0B42382E42900DE237D /* RegisterEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0B02382E42900DE237D /* RegisterEmailInteractor.swift */; };
@@ -103,6 +111,14 @@
 		52402C51238D8AA30056DFE6 /* SignInComponent+Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInComponent+Tabbar.swift"; sourceTree = "<group>"; };
 		5243695F238EBEC10067639A /* LoginScreenComponent+Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginScreenComponent+Tabbar.swift"; sourceTree = "<group>"; };
 		52436B7B2390D6800067639A /* ProfileStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStream.swift; sourceTree = "<group>"; };
+		52436B8323910E270067639A /* PostProductVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PostProductVC.xib; path = MyStore/App/PostProductVC.xib; sourceTree = SOURCE_ROOT; };
+		52436B8423910E270067639A /* PostProductRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostProductRouter.swift; path = MyStore/App/PostProductRouter.swift; sourceTree = SOURCE_ROOT; };
+		52436B8523910E270067639A /* PostProductBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostProductBuilder.swift; path = MyStore/App/PostProductBuilder.swift; sourceTree = SOURCE_ROOT; };
+		52436B8623910E270067639A /* PostProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostProductInteractor.swift; path = MyStore/App/PostProductInteractor.swift; sourceTree = SOURCE_ROOT; };
+		52436B8723910E270067639A /* PostProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostProductVC.swift; path = MyStore/App/PostProductVC.swift; sourceTree = SOURCE_ROOT; };
+		52436B8F2391173B0067639A /* ProfileViewControllerComponent+PostProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewControllerComponent+PostProduct.swift"; sourceTree = "<group>"; };
+		52436B92239258E30067639A /* PostProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProductCell.swift; sourceTree = "<group>"; };
+		52436B93239258E30067639A /* PostProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostProductCell.xib; sourceTree = "<group>"; };
 		5245D0AE2382E42900DE237D /* RegisterEmailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailRouter.swift; sourceTree = "<group>"; };
 		5245D0AF2382E42900DE237D /* RegisterEmailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailBuilder.swift; sourceTree = "<group>"; };
 		5245D0B02382E42900DE237D /* RegisterEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailInteractor.swift; sourceTree = "<group>"; };
@@ -194,6 +210,7 @@
 				52F6F2552389463C0039C946 /* TabBar */,
 				52F6F265238965280039C946 /* Home */,
 				52402C3E238D74410056DFE6 /* Profile */,
+				52436B8223910E020067639A /* PostProduct */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -256,6 +273,7 @@
 		52402C3E238D74410056DFE6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				52436B8E2391171E0067639A /* Extension */,
 				52402C3F238D746D0056DFE6 /* ProfileViewController.swift */,
 				52402C40238D746D0056DFE6 /* ProfileViewController.xib */,
 			);
@@ -280,6 +298,36 @@
 				52402C51238D8AA30056DFE6 /* SignInComponent+Tabbar.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		52436B8223910E020067639A /* PostProduct */ = {
+			isa = PBXGroup;
+			children = (
+				52436B91239258B20067639A /* Cell */,
+				52436B8323910E270067639A /* PostProductVC.xib */,
+				52436B8423910E270067639A /* PostProductRouter.swift */,
+				52436B8523910E270067639A /* PostProductBuilder.swift */,
+				52436B8623910E270067639A /* PostProductInteractor.swift */,
+				52436B8723910E270067639A /* PostProductVC.swift */,
+			);
+			path = PostProduct;
+			sourceTree = "<group>";
+		};
+		52436B8E2391171E0067639A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				52436B8F2391173B0067639A /* ProfileViewControllerComponent+PostProduct.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		52436B91239258B20067639A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				52436B92239258E30067639A /* PostProductCell.swift */,
+				52436B93239258E30067639A /* PostProductCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5245D0AD2382E40E00DE237D /* RegisterEmail */ = {
@@ -434,10 +482,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52436B8823910E270067639A /* PostProductVC.xib in Resources */,
 				52402C42238D746D0056DFE6 /* ProfileViewController.xib in Resources */,
 				520557CF236ED53700507025 /* LaunchScreen.storyboard in Resources */,
 				520557EA236EF61200507025 /* Localizable.strings in Resources */,
 				520557CC236ED53700507025 /* Assets.xcassets in Resources */,
+				52436B95239258E30067639A /* PostProductCell.xib in Resources */,
 				52F6F269238965600039C946 /* HomeController.xib in Resources */,
 				520557DD236EDA9000507025 /* LoginStoryBoard.storyboard in Resources */,
 				520557CA236ED53600507025 /* Main.storyboard in Resources */,
@@ -512,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52436B902391173B0067639A /* ProfileViewControllerComponent+PostProduct.swift in Sources */,
 				52F6F26023894A660039C946 /* RegisterProfileComponent+Tabbar.swift in Sources */,
 				5245D0C22382EB2100DE237D /* RegisterProfileBuilder.swift in Sources */,
 				52F6F268238965600039C946 /* HomeController.swift in Sources */,
@@ -520,6 +571,7 @@
 				52402C4A238D7A9D0056DFE6 /* SignInVC.swift in Sources */,
 				5245D0BB2382EA4C00DE237D /* fw.swift in Sources */,
 				52056C792380520800993CE5 /* RootComponent+LoginScreen.swift in Sources */,
+				52436B94239258E30067639A /* PostProductCell.swift in Sources */,
 				5239A1FF2379BAC3002B0F40 /* Extension.swift in Sources */,
 				52402C48238D7A9D0056DFE6 /* SignInBuilder.swift in Sources */,
 				52F6F25C238946740039C946 /* TabbarInteractor.swift in Sources */,
@@ -528,10 +580,12 @@
 				52056C6123801E7300993CE5 /* AppCompoment.swift in Sources */,
 				52056C742380515900993CE5 /* LoginScreenBuilder.swift in Sources */,
 				52056C732380515900993CE5 /* LoginScreenRouter.swift in Sources */,
+				52436B8C23910E270067639A /* PostProductVC.swift in Sources */,
 				520557E7236EE54A00507025 /* Localize.swift in Sources */,
 				52F6F25B238946740039C946 /* TabbarBuilder.swift in Sources */,
 				520557C7236ED53600507025 /* ViewController.swift in Sources */,
 				520557F5236EFEA800507025 /* Constant.swift in Sources */,
+				52436B8B23910E270067639A /* PostProductInteractor.swift in Sources */,
 				52402C47238D7A9D0056DFE6 /* SignInRouter.swift in Sources */,
 				5245D0B22382E42900DE237D /* RegisterEmailRouter.swift in Sources */,
 				52056C5F23801E4700993CE5 /* RootVC.swift in Sources */,
@@ -546,6 +600,7 @@
 				52F6F25A238946740039C946 /* TabbarRouter.swift in Sources */,
 				520557C5236ED53600507025 /* AppDelegate.swift in Sources */,
 				52F6F25D238946740039C946 /* TabbarVC.swift in Sources */,
+				52436B8923910E270067639A /* PostProductRouter.swift in Sources */,
 				5245D0C12382EB2100DE237D /* RegisterProfileRouter.swift in Sources */,
 				52402C4D238D7BB10056DFE6 /* LoginScreenComponent+SignIn.swift in Sources */,
 				52F6F26C238966B30039C946 /* HomeCell.swift in Sources */,
@@ -555,6 +610,7 @@
 				52402C49238D7A9D0056DFE6 /* SignInInteractor.swift in Sources */,
 				520557FD236F0B9C00507025 /* User.swift in Sources */,
 				52436960238EBEC10067639A /* LoginScreenComponent+Tabbar.swift in Sources */,
+				52436B8A23910E270067639A /* PostProductBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
