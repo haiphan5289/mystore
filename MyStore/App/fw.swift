@@ -15,11 +15,14 @@ import Photos
 
 enum FirebaseTable {
     case users
+    case products
     
     func getTableUser() -> String {
         switch self {
         case .users:
             return "Users"
+        case .products:
+            return "Products"
         }
     }
 }

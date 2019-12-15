@@ -87,6 +87,7 @@ private extension RegisterProfileVC {
         textFieldFirstName.placeholder = Text.firstName.localizedText
         textFieldLastName.placeholder = Text.lastName.localizedText
         textFieldPassword.placeholder = Text.password.localizedText
+        btSelectImage.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
         btRegister.setTitle(Text.register.localizedText, for: .normal)
         btRegister.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
         btRegister.isEnabled = false
@@ -96,20 +97,43 @@ private extension RegisterProfileVC {
         // todo: Visualize view's here.
     }
     private func setupRX() {
-        textFieldFirstName.rx.text.orEmpty.bind { [weak self] (text) in
-            self?.isFirstName = (text.count > 0) ? true : false
-            self?.validShowButtonRegister()
-        }.disposed(by: disposeBag)
+        //        textFieldFirstName.rx.text.orEmpty.bind { [weak self] (text) in
+        //            self?.isFirstName = (text.count > 0) ? true : false
+        //            self?.validShowButtonRegister()
+        //        }.disposed(by: disposeBag)
+        //        textFieldLastName.rx.text.orEmpty.bind { [weak self] (text) in
+        //            self?.isLastName = (text.count > 0) ? true : false
+        //            self?.validShowButtonRegister()
+        //            }.disposed(by: disposeBag)
+        //
+        //        textFieldPassword.rx.text.orEmpty.bind { [weak self] (text) in
+        //            self?.isPassword = (text.count > 0) ? true : false
+        //            self?.validShowButtonRegister()
+        //            }.disposed(by: disposeBag)
         
-        textFieldLastName.rx.text.orEmpty.bind { [weak self] (text) in
-            self?.isLastName = (text.count > 0) ? true : false
-            self?.validShowButtonRegister()
-            }.disposed(by: disposeBag)
         
-        textFieldPassword.rx.text.orEmpty.bind { [weak self] (text) in
-            self?.isPassword = (text.count > 0) ? true : false
-            self?.validShowButtonRegister()
-            }.disposed(by: disposeBag)
+        let isFirstName = textFieldFirstName.rx.text.orEmpty.map { (value) -> Bool in
+            return value.count > 0
+        }
+        let isLastName = textFieldLastName.rx.text.orEmpty.map { (value) -> Bool in
+            return value.count > 0
+        }
+        let isPassword = textFieldPassword.rx.text.orEmpty.map { (value) -> Bool in
+            return value.count > 5
+        }
+        
+        _ = Observable.combineLatest(isFirstName, isLastName, isPassword).map { (isCheckFirstName, isCheckLastName, isCheckPassword) -> Bool in
+            return isCheckFirstName && isCheckLastName && isCheckPassword
+            }.bind { (enable) in
+                if enable {
+                    self.btRegister.isEnabled = true
+                    self.btRegister.backgroundColor = CustomColor.blue.getColor()
+                } else {
+                    self.btRegister.isEnabled = false
+                    self.btRegister.backgroundColor = CustomColor.grey.getColor()
+                }
+//                self.btRegister.isEnabled = (enable) ? true : false
+        }
         
         btRegister.rx.tap.bind { _ in
             let alert = self.showLoading()
@@ -162,8 +186,8 @@ private extension RegisterProfileVC {
             alert.addAction(btPhoto)
             alert.addAction(btCancel)
             self.present(alert, animated: true, completion: nil)
-        }.disposed(by: disposeBag)
-
+            }.disposed(by: disposeBag)
+        
         
     }
     private func checkCaseSelectImage(type: SelectImageFromLibrary){

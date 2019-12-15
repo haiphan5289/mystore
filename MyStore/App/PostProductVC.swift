@@ -31,6 +31,7 @@ final class PostProductVC: UIViewController, PostProductPresentable, PostProduct
         super.viewDidLoad()
         visualize()
         setupRX()
+        self.listImage.append(UIImage(named: "uploadimage")!)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,6 +45,9 @@ final class PostProductVC: UIViewController, PostProductPresentable, PostProduct
     @IBOutlet weak var lbDescriptionText: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btSubmit: UIButton!
+    private var listImage: [UIImage] = []
+    private var isHasImage: Bool = false
+    private var indexPathSelect: IndexPath!
     
     
     /// Class's private properties.
@@ -79,10 +83,12 @@ private extension PostProductVC {
         lbDescriptionText.clipsToBounds = true
         btSubmit.setTitle(Text.postProduct.localizedText, for: .normal)
         btSubmit.layer.cornerRadius = CGFloat(Constant.btRadiusLogin.value)
-        
+        collectionView.layer.borderWidth = 1
+        collectionView.layer.borderColor = CustomColor.greyLine.getColor().cgColor
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "PostProductCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
     }
     private func visualize() {
@@ -90,7 +96,7 @@ private extension PostProductVC {
     }
     private func setupRX() {
         btSubmit.rx.tap.bind { _ in
-            let tableProduct = fw.share.dataBase.child("Products").childByAutoId()
+            let tableProduct = fw.share.dataBase.child(FirebaseTable.products.getTableUser()).childByAutoId()
             let infoUser: Dictionary<String,Any> = ["title": self.tfTitle.text,
                                                     "price": self.tfPrice.text,
                                                     "description": self.lbDescriptionText.text]
@@ -98,18 +104,51 @@ private extension PostProductVC {
             
         }.disposed(by: disposeBag)
     }
+    private func removeElementImage(indexPath: IndexPath) {
+        self.listImage.remove(at: indexPath.row)
+        self.collectionView.reloadData()
+    }
 }
 extension PostProductVC: UICollectionViewDelegate {
 }
 extension PostProductVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listImage.count < 3 {
+            return self.listImage.count
+        }
         return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .brown
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PostProductCell
+        if isHasImage {
+            cell.imgSelect.image = self.listImage[indexPath.row]
+        }
+        
+        if indexPath.row == self.listImage.count - 1 {
+            cell.btDelete.isHidden = true
+        } else {
+            cell.btDelete.isHidden = false
+        }
+        
+        cell.buttonAction = { (sender) in
+            self.removeElementImage(indexPath: indexPath)
+        }
+        
+        
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alert = self.showLoading()
+        let img: UIImagePickerController = UIImagePickerController()
+        self.isHasImage = true
+        img.delegate = self
+        img.allowsEditing = true
+        img.sourceType = .photoLibrary
+        self.indexPathSelect = indexPath
+        alert.dismiss(animated: true) {
+            self.present(img, animated: true, completion: nil)
+        }
     }
     
 }
@@ -118,7 +157,26 @@ extension PostProductVC: UICollectionViewDelegateFlowLayout {
         return 5
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.frame.width - 32) / 3 - 10
+        let width = (self.view.frame.width - 32) / 3 - 20
         return CGSize(width: width, height: self.collectionView.frame.size.height - 20)
     }
+}
+extension PostProductVC: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        self.dismiss(animated: true) {
+            self.listImage.insert(image, at: 0)
+//            if self.listImage.count > 3 {
+//                self.listImage.removeFirst()
+//            }
+            self.imgCheck.image = image
+            self.collectionView.reloadData()
+        }
+        
+    }
+}
+extension PostProductVC: UINavigationControllerDelegate {
 }

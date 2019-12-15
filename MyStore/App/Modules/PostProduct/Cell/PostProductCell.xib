@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,22 +19,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadimage" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-Kj-Cyh">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadimage" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-Kj-Cyh">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtw-UU-7C2">
+                        <rect key="frame" x="75" y="5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="2zk-bu-1ZZ"/>
+                            <constraint firstAttribute="width" constant="20" id="p5D-uT-GCu"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="delete"/>
+                        <connections>
+                            <action selector="btDeleteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n2A-Ov-8Wn"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="UFY-Kj-Cyh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="03Y-93-KZr"/>
                 <constraint firstItem="UFY-Kj-Cyh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GDm-b7-VAs"/>
+                <constraint firstItem="Xtw-UU-7C2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="QK2-ua-b8v"/>
                 <constraint firstAttribute="bottom" secondItem="UFY-Kj-Cyh" secondAttribute="bottom" id="TfO-VR-N7k"/>
                 <constraint firstAttribute="trailing" secondItem="UFY-Kj-Cyh" secondAttribute="trailing" id="akO-ZN-pGe"/>
+                <constraint firstAttribute="trailing" secondItem="Xtw-UU-7C2" secondAttribute="trailing" constant="5" id="wl7-Qq-lRF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="btDelete" destination="Xtw-UU-7C2" id="rZv-pQ-NUI"/>
+                <outlet property="imgSelect" destination="UFY-Kj-Cyh" id="Rkj-FK-BPU"/>
+            </connections>
             <point key="canvasLocation" x="118.84057971014494" y="39.508928571428569"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="uploadimage" width="77" height="71"/>
+        <image name="delete" width="64" height="64"/>
+        <image name="uploadimage" width="154" height="142"/>
     </resources>
 </document>
