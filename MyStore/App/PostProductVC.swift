@@ -11,11 +11,13 @@ import RIBs
 import UIKit
 import RxSwift
 import RxCocoa
+import Firebase
 
 protocol PostProductPresentableListener: class {
     // todo: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    func routeToProfile()
 }
 
 final class PostProductVC: UIViewController, PostProductPresentable, PostProductViewControllable {
@@ -31,6 +33,7 @@ final class PostProductVC: UIViewController, PostProductPresentable, PostProduct
         super.viewDidLoad()
         visualize()
         setupRX()
+//        setupNavigation()
         self.listImage.append(UIImage(named: "uploadimage")!)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +48,7 @@ final class PostProductVC: UIViewController, PostProductPresentable, PostProduct
     @IBOutlet weak var lbDescriptionText: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btSubmit: UIButton!
+    @IBOutlet weak var btCacnel: UIButton!
     private var listImage: [UIImage] = []
     private var isHasImage: Bool = false
     private var indexPathSelect: IndexPath!
@@ -96,14 +100,56 @@ private extension PostProductVC {
     }
     private func setupRX() {
         btSubmit.rx.tap.bind { _ in
-            let tableProduct = fw.share.dataBase.child(FirebaseTable.products.getTableUser()).childByAutoId()
-            let infoUser: Dictionary<String,Any> = ["title": self.tfTitle.text,
-                                                    "price": self.tfPrice.text,
-                                                    "description": self.lbDescriptionText.text]
-            tableProduct.setValue(infoUser)
-            
+            DispatchQueue.main.async {
+                let tableProduct = fw.share.dataBase.child(FirebaseTable.products.getTableUser()).childByAutoId()
+                self.listImage.removeLast()
+                self.getArrayImage(completion: { (array)  in
+                    let infoUser: Dictionary<String,Any> = ["title": self.tfTitle.text,
+                                                            "price": self.tfPrice.text,
+                                                            "description": self.lbDescriptionText.text,
+                                                            "arrayImage": array]
+                    tableProduct.setValue(infoUser)
+                    return array
+                })
+            }
+            }.disposed(by: disposeBag)
+        
+        btCacnel.rx.tap.bind { _ in
+            self.listener?.routeToProfile()
         }.disposed(by: disposeBag)
     }
+    
+    private func getArrayImage(completion: @escaping ([String]) -> [String]){
+        var arrayStringImage: [String] = []
+        var count = 0
+        for item in self.listImage {
+            let randomIntFrom0To10 = Int.random(in: 0 ..< 100000000000000)
+            guard let current = Auth.auth().currentUser, let imgData = item.pngData() else { return }
+            let ref = fw.share.storage.child("products/\(current.uid)/\(randomIntFrom0To10).jpg")
+            let _ = ref.putData(imgData, metadata: nil, completion: { (metaData, err) in
+                ref.downloadURL(completion: { (url, err) in
+                    guard let url = url?.absoluteString else { return }
+                    count += 1
+                    arrayStringImage.append(url)
+                    if count == self.listImage.count {
+                        completion(arrayStringImage)
+                    }
+                })
+            })
+        }
+    }
+    
+//    private func setupNavigation() {
+//        self.navigationItem.setHidesBackButton(true, animated: true)
+//        let btBack = UIButton(type: .system)
+//        btBack.setTitle("Cancel", for: .normal)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btBack)
+//        btBack.rx.tap.bind { _ in
+//            self.dismiss(animated: true, completion: nil)
+//        }.disposed(by: disposeBag)
+//
+//    }
+    
     private func removeElementImage(indexPath: IndexPath) {
         self.listImage.remove(at: indexPath.row)
         self.collectionView.reloadData()
@@ -169,10 +215,6 @@ extension PostProductVC: UIImagePickerControllerDelegate {
         }
         self.dismiss(animated: true) {
             self.listImage.insert(image, at: 0)
-//            if self.listImage.count > 3 {
-//                self.listImage.removeFirst()
-//            }
-            self.imgCheck.image = image
             self.collectionView.reloadData()
         }
         

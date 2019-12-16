@@ -54,29 +54,22 @@ struct UserFireBase {
     }
     
 }
-//struct UserFireBase: Codable {
-//    let id: String?
-//    let password: String?
-//    let firstName: String?
-//    let lastName: String?
-//    let urlProfile: String?
-//    let email: String?
-//
-//    enum Codingkeys: String, CodingKey {
-//        case id = "id"
-//        case firstName = "firstName"
-//        case lastName = "lastName"
-//        case urlProfile = "urlProfile"
-//        case password = "password"
-//    }
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        id = try values.decode(String.self, forKey: .id)
-//        password = try values.decode(String.self, forKey: .password)
-//        firstName = try values.decode(String.self, forKey: .firstName)
-//        lastName = try values.decode(String.self, forKey: .lastName)
-//        urlProfile = try values.decode(String.self, forKey: .urlProfile)
-//        email = try values.decode(String.self, forKey: .email)
-//
-//    }
-//}
+struct ProductsFirebase {
+    let title: String?
+    let price: String?
+    let description: String?
+    let arrayImage: [String]?
+    init(title: String, price: String, description: String, arrayImage: [String]) {
+        self.title = title
+        self.price = price
+        self.description = description
+        self.arrayImage = arrayImage
+    }
+    init(snapshot: DataSnapshot) {
+        let tem = snapshot.value as? [String:Any]
+        self.title = tem?["title"] as? String
+        self.price = tem?["price"] as? String
+        self.description = tem?["description"] as? String
+        self.arrayImage = tem?["arrayImage"] as? [String]
+    }
+}

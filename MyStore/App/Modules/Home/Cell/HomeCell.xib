@@ -19,9 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hoM-3V-Rvp">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hoM-3V-Rvp">
                         <rect key="frame" x="16" y="12" width="63" height="63"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.32156862749999998" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="63" id="ZEe-gZ-GTm"/>
                             <constraint firstAttribute="height" constant="63" id="yba-30-BEw"/>
@@ -67,6 +66,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgProduct" destination="hoM-3V-Rvp" id="yZH-YF-6TP"/>
+                <outlet property="lbDescription" destination="XAS-xe-iLM" id="LI0-9S-Ii5"/>
+                <outlet property="lbPrice" destination="Lwp-7U-RLt" id="E9D-kk-rVc"/>
+                <outlet property="lbTitle" destination="LZ3-dy-GhH" id="EHf-FN-Nhu"/>
+            </connections>
             <point key="canvasLocation" x="34.782608695652179" y="34.486607142857139"/>
         </tableViewCell>
     </objects>

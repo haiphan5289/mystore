@@ -14,6 +14,10 @@ import Kingfisher
 import RIBs
 
 class ProfileViewController: UIViewController, PostProductListener {
+    func dismiss() {
+        self.navigationController?.popToViewController(self, animated: true)
+    }
+    
 
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lbEmail: UILabel!
@@ -77,6 +81,7 @@ class ProfileViewController: UIViewController, PostProductListener {
             self.routePostProduct?.interactable.activate()
             self.routePostProduct?.load()
             self.navigationController?.pushViewController((self.routePostProduct?.viewControllable.uiviewController)!, animated: true)
+//            self.present((self.routePostProduct?.viewControllable.uiviewController)!, animated: true, completion: nil)
         }.disposed(by: disposeBag)
         
         btSignOut.rx.tap.bind { _ in

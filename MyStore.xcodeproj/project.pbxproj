@@ -58,6 +58,8 @@
 		5245D0C32382EB2100DE237D /* RegisterProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0BF2382EB2100DE237D /* RegisterProfileInteractor.swift */; };
 		5245D0C42382EB2100DE237D /* RegisterProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0C02382EB2100DE237D /* RegisterProfileVC.swift */; };
 		5245D0C72382EC0000DE237D /* RegisterEmailComponent+RegisterProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0C62382EC0000DE237D /* RegisterEmailComponent+RegisterProfile.swift */; };
+		52520E0923A7D2590036A87D /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52520E0723A7D2590036A87D /* HomeDetailVC.swift */; };
+		52520E0A23A7D2590036A87D /* HomeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52520E0823A7D2590036A87D /* HomeDetailVC.xib */; };
 		527AED3323869AAC00FCEF57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */; };
 		52F6F25A238946740039C946 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F256238946740039C946 /* TabbarRouter.swift */; };
 		52F6F25B238946740039C946 /* TabbarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F257238946740039C946 /* TabbarBuilder.swift */; };
@@ -130,6 +132,8 @@
 		5245D0BF2382EB2100DE237D /* RegisterProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileInteractor.swift; sourceTree = "<group>"; };
 		5245D0C02382EB2100DE237D /* RegisterProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileVC.swift; sourceTree = "<group>"; };
 		5245D0C62382EC0000DE237D /* RegisterEmailComponent+RegisterProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterEmailComponent+RegisterProfile.swift"; sourceTree = "<group>"; };
+		52520E0723A7D2590036A87D /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
+		52520E0823A7D2590036A87D /* HomeDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailVC.xib; sourceTree = "<group>"; };
 		527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52F6F256238946740039C946 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
 		52F6F257238946740039C946 /* TabbarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarBuilder.swift; sourceTree = "<group>"; };
@@ -372,6 +376,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		52520E0623A7D22E0036A87D /* HomeDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				52520E0723A7D2590036A87D /* HomeDetailVC.swift */,
+				52520E0823A7D2590036A87D /* HomeDetailVC.xib */,
+			);
+			path = HomeDetailVC;
+			sourceTree = "<group>";
+		};
 		52F6F2552389463C0039C946 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +407,7 @@
 		52F6F265238965280039C946 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				52520E0623A7D22E0036A87D /* HomeDetailVC */,
 				52F6F26E238966BB0039C946 /* Cell */,
 				52F6F266238965600039C946 /* HomeController.swift */,
 				52F6F267238965600039C946 /* HomeController.xib */,
@@ -492,6 +506,7 @@
 				520557DD236EDA9000507025 /* LoginStoryBoard.storyboard in Resources */,
 				520557CA236ED53600507025 /* Main.storyboard in Resources */,
 				52F6F26D238966B30039C946 /* HomeCell.xib in Resources */,
+				52520E0A23A7D2590036A87D /* HomeDetailVC.xib in Resources */,
 				527AED3323869AAC00FCEF57 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +617,7 @@
 				52F6F25D238946740039C946 /* TabbarVC.swift in Sources */,
 				52436B8923910E270067639A /* PostProductRouter.swift in Sources */,
 				5245D0C12382EB2100DE237D /* RegisterProfileRouter.swift in Sources */,
+				52520E0923A7D2590036A87D /* HomeDetailVC.swift in Sources */,
 				52402C4D238D7BB10056DFE6 /* LoginScreenComponent+SignIn.swift in Sources */,
 				52F6F26C238966B30039C946 /* HomeCell.swift in Sources */,
 				52056C752380515900993CE5 /* LoginScreenInteractor.swift in Sources */,

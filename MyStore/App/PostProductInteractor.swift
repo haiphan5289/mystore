@@ -22,6 +22,7 @@ protocol PostProductPresentable: Presentable {
 
 protocol PostProductListener: class {
     // todo: Declare methods the interactor can invoke to communicate with other RIBs.
+    func dismiss()
 }
 
 final class PostProductInteractor: PresentableInteractor<PostProductPresentable> {
@@ -57,6 +58,11 @@ extension PostProductInteractor: PostProductInteractable {
 
 // MARK: PostProductPresentableListener's members
 extension PostProductInteractor: PostProductPresentableListener {
+    func routeToProfile() {
+        self.listener?.dismiss()
+        
+    }
+    
 }
 
 // MARK: Class's private methods
