@@ -17,6 +17,7 @@ enum Text: String {
     case desSlogan = "Chúng tôi sẽ mang tới trải nghiêm tuyệt vời"
     case desPolicies = "Khi bạn đăng kí, bạn đã chấp nhận điều khoản cuản chúng tôi"
     case description = "Mô tả"
+    case detail = "Chi tiết"
     //e
     case email = "Email"
     //f

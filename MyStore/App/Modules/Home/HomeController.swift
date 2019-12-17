@@ -96,7 +96,8 @@ extension HomeController: UITableViewDataSource {
 //        let vc = HomeDetailVC(model: detail)
         let vc = HomeDetailVC(nibName: "HomeDetailVC", bundle: nil) as! HomeDetailVC
         vc.model = detail
-        self.present(vc, animated: true, completion: nil)
+        let navigation = UINavigationController(rootViewController: vc)
+        self.present(navigation, animated: true, completion: nil)
     }
     
     

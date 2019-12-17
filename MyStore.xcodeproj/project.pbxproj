@@ -60,6 +60,8 @@
 		5245D0C72382EC0000DE237D /* RegisterEmailComponent+RegisterProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D0C62382EC0000DE237D /* RegisterEmailComponent+RegisterProfile.swift */; };
 		52520E0923A7D2590036A87D /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52520E0723A7D2590036A87D /* HomeDetailVC.swift */; };
 		52520E0A23A7D2590036A87D /* HomeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52520E0823A7D2590036A87D /* HomeDetailVC.xib */; };
+		52520E1323A91E6F0036A87D /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52520E1123A91E6F0036A87D /* HomeDetailCell.swift */; };
+		52520E1423A91E6F0036A87D /* HomeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52520E1223A91E6F0036A87D /* HomeDetailCell.xib */; };
 		527AED3323869AAC00FCEF57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */; };
 		52F6F25A238946740039C946 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F256238946740039C946 /* TabbarRouter.swift */; };
 		52F6F25B238946740039C946 /* TabbarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F257238946740039C946 /* TabbarBuilder.swift */; };
@@ -134,6 +136,8 @@
 		5245D0C62382EC0000DE237D /* RegisterEmailComponent+RegisterProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterEmailComponent+RegisterProfile.swift"; sourceTree = "<group>"; };
 		52520E0723A7D2590036A87D /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		52520E0823A7D2590036A87D /* HomeDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailVC.xib; sourceTree = "<group>"; };
+		52520E1123A91E6F0036A87D /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
+		52520E1223A91E6F0036A87D /* HomeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailCell.xib; sourceTree = "<group>"; };
 		527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52F6F256238946740039C946 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
 		52F6F257238946740039C946 /* TabbarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarBuilder.swift; sourceTree = "<group>"; };
@@ -379,10 +383,20 @@
 		52520E0623A7D22E0036A87D /* HomeDetailVC */ = {
 			isa = PBXGroup;
 			children = (
+				52520E0C23A91E090036A87D /* Cell */,
 				52520E0723A7D2590036A87D /* HomeDetailVC.swift */,
 				52520E0823A7D2590036A87D /* HomeDetailVC.xib */,
 			);
 			path = HomeDetailVC;
+			sourceTree = "<group>";
+		};
+		52520E0C23A91E090036A87D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				52520E1123A91E6F0036A87D /* HomeDetailCell.swift */,
+				52520E1223A91E6F0036A87D /* HomeDetailCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		52F6F2552389463C0039C946 /* TabBar */ = {
@@ -499,6 +513,7 @@
 				52436B8823910E270067639A /* PostProductVC.xib in Resources */,
 				52402C42238D746D0056DFE6 /* ProfileViewController.xib in Resources */,
 				520557CF236ED53700507025 /* LaunchScreen.storyboard in Resources */,
+				52520E1423A91E6F0036A87D /* HomeDetailCell.xib in Resources */,
 				520557EA236EF61200507025 /* Localizable.strings in Resources */,
 				520557CC236ED53700507025 /* Assets.xcassets in Resources */,
 				52436B95239258E30067639A /* PostProductCell.xib in Resources */,
@@ -585,6 +600,7 @@
 				52056C5D23801E4700993CE5 /* RootBuilder.swift in Sources */,
 				52402C4A238D7A9D0056DFE6 /* SignInVC.swift in Sources */,
 				5245D0BB2382EA4C00DE237D /* fw.swift in Sources */,
+				52520E1323A91E6F0036A87D /* HomeDetailCell.swift in Sources */,
 				52056C792380520800993CE5 /* RootComponent+LoginScreen.swift in Sources */,
 				52436B94239258E30067639A /* PostProductCell.swift in Sources */,
 				5239A1FF2379BAC3002B0F40 /* Extension.swift in Sources */,
