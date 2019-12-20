@@ -46,7 +46,6 @@ class HomeController: UIViewController {
         } else {}
         let tableProduct = fw.share.dataBase.child(FirebaseTable.products.getTableUser())
         tableProduct.observe(.childAdded) { (data) in
-            print(data.value)
             if data.value is NSNull {
                 NSLog("Không có profile")
             } else {

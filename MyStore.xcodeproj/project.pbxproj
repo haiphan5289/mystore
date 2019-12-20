@@ -63,6 +63,10 @@
 		52520E1323A91E6F0036A87D /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52520E1123A91E6F0036A87D /* HomeDetailCell.swift */; };
 		52520E1423A91E6F0036A87D /* HomeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52520E1223A91E6F0036A87D /* HomeDetailCell.xib */; };
 		527AED3323869AAC00FCEF57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */; };
+		527B64DD23AD063900CF3397 /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B64DB23AD063900CF3397 /* MessageVC.swift */; };
+		527B64DE23AD063900CF3397 /* MessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527B64DC23AD063900CF3397 /* MessageVC.xib */; };
+		527B64E123AD0C6E00CF3397 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B64DF23AD0C6E00CF3397 /* MessageCell.swift */; };
+		527B64E223AD0C6E00CF3397 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527B64E023AD0C6E00CF3397 /* MessageCell.xib */; };
 		52F6F25A238946740039C946 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F256238946740039C946 /* TabbarRouter.swift */; };
 		52F6F25B238946740039C946 /* TabbarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F257238946740039C946 /* TabbarBuilder.swift */; };
 		52F6F25C238946740039C946 /* TabbarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6F258238946740039C946 /* TabbarInteractor.swift */; };
@@ -139,6 +143,10 @@
 		52520E1123A91E6F0036A87D /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
 		52520E1223A91E6F0036A87D /* HomeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailCell.xib; sourceTree = "<group>"; };
 		527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		527B64DB23AD063900CF3397 /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
+		527B64DC23AD063900CF3397 /* MessageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageVC.xib; sourceTree = "<group>"; };
+		527B64DF23AD0C6E00CF3397 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		527B64E023AD0C6E00CF3397 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		52F6F256238946740039C946 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
 		52F6F257238946740039C946 /* TabbarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarBuilder.swift; sourceTree = "<group>"; };
 		52F6F258238946740039C946 /* TabbarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarInteractor.swift; sourceTree = "<group>"; };
@@ -219,6 +227,9 @@
 				52F6F265238965280039C946 /* Home */,
 				52402C3E238D74410056DFE6 /* Profile */,
 				52436B8223910E020067639A /* PostProduct */,
+				527B64DA23AD05F300CF3397 /* MessageVC */,
+				527B64DB23AD063900CF3397 /* MessageVC.swift */,
+				527B64DC23AD063900CF3397 /* MessageVC.xib */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -399,6 +410,23 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		527B64DA23AD05F300CF3397 /* MessageVC */ = {
+			isa = PBXGroup;
+			children = (
+				527B64E323AD0C7400CF3397 /* Cell */,
+			);
+			path = MessageVC;
+			sourceTree = "<group>";
+		};
+		527B64E323AD0C7400CF3397 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				527B64DF23AD0C6E00CF3397 /* MessageCell.swift */,
+				527B64E023AD0C6E00CF3397 /* MessageCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		52F6F2552389463C0039C946 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +538,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527B64DE23AD063900CF3397 /* MessageVC.xib in Resources */,
 				52436B8823910E270067639A /* PostProductVC.xib in Resources */,
 				52402C42238D746D0056DFE6 /* ProfileViewController.xib in Resources */,
 				520557CF236ED53700507025 /* LaunchScreen.storyboard in Resources */,
@@ -519,6 +548,7 @@
 				52436B95239258E30067639A /* PostProductCell.xib in Resources */,
 				52F6F269238965600039C946 /* HomeController.xib in Resources */,
 				520557DD236EDA9000507025 /* LoginStoryBoard.storyboard in Resources */,
+				527B64E223AD0C6E00CF3397 /* MessageCell.xib in Resources */,
 				520557CA236ED53600507025 /* Main.storyboard in Resources */,
 				52F6F26D238966B30039C946 /* HomeCell.xib in Resources */,
 				52520E0A23A7D2590036A87D /* HomeDetailVC.xib in Resources */,
@@ -596,6 +626,7 @@
 				52F6F26023894A660039C946 /* RegisterProfileComponent+Tabbar.swift in Sources */,
 				5245D0C22382EB2100DE237D /* RegisterProfileBuilder.swift in Sources */,
 				52F6F268238965600039C946 /* HomeController.swift in Sources */,
+				527B64DD23AD063900CF3397 /* MessageVC.swift in Sources */,
 				52056C762380515900993CE5 /* LoginScreenVC.swift in Sources */,
 				52056C5D23801E4700993CE5 /* RootBuilder.swift in Sources */,
 				52402C4A238D7A9D0056DFE6 /* SignInVC.swift in Sources */,
@@ -639,6 +670,7 @@
 				52056C752380515900993CE5 /* LoginScreenInteractor.swift in Sources */,
 				52402C41238D746D0056DFE6 /* ProfileViewController.swift in Sources */,
 				5245D0B52382E42900DE237D /* RegisterEmailVC.swift in Sources */,
+				527B64E123AD0C6E00CF3397 /* MessageCell.swift in Sources */,
 				52402C49238D7A9D0056DFE6 /* SignInInteractor.swift in Sources */,
 				520557FD236F0B9C00507025 /* User.swift in Sources */,
 				52436960238EBEC10067639A /* LoginScreenComponent+Tabbar.swift in Sources */,

@@ -54,6 +54,7 @@ enum Text: String {
     case signOut = "Đăng xuât"
     //t
     case title = "Tiêu đề"
+    case typingMessage = "Nhập tin nhắn của bạn"
     //y
     case yourEmail = "Email của bạn là gì"
     

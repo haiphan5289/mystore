@@ -73,7 +73,7 @@ final class TabbarVC: UITabBarController, TabbarPresentable, TabbarViewControlla
         viewLine()
         self.delegate = self
         let home = HomeController()
-        let message = HomeController()
+        let message = MessageVC()
         let myOrder = ViewController()
         let notify = ViewController()
         let profile = ProfileViewController()
