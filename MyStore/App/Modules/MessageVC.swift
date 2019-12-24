@@ -38,10 +38,10 @@ class MessageVC: UIViewController {
         getProfileAdmin()
         setupRX()
         setupNavigation()
-
     }
     override func viewWillAppear(_ animated: Bool) {
         visualize()
+        self.getMessageFromFirebase()
     }
     
     private func setupRX() {
@@ -58,7 +58,7 @@ class MessageVC: UIViewController {
             }
 
             let time: NSNumber = NSNumber(value: Date().timeIntervalSince1970)
-            let dic: [String: Any] = ["mess": dataString, "fromdID": current.uid, "toID": self.userAdmin.id, "time": time]
+            let dic: [String: Any] = ["mess": dataString, "fromID": current.uid, "toID": self.userAdmin.id, "time": time]
             let tableMess = fw.share.dataBase.child("Mess").childByAutoId()
             tableMess.setValue(dic, withCompletionBlock: { (err, data) in
                 if err != nil {
@@ -114,6 +114,24 @@ class MessageVC: UIViewController {
         self.imgShow.isHidden = true
         self.btDeleteImage.isHidden = true
         
+    }
+    
+    private func getMessageFromFirebase() {
+        if let current =  Auth.auth().currentUser?.uid {
+            let tableUserMess = fw.share.dataBase.child("User-Mess").child(current)
+            tableUserMess.observe(.childAdded) { (data) in
+                let key = data.key
+                let tabelPartner = fw.share.dataBase.child("User-Mess").child(current).child(key)
+                tabelPartner.observe(.childAdded, with: { (data) in
+                    let keyMess = data.key
+                    let tableMess = fw.share.dataBase.child("Mess").child(keyMess)
+                    tableMess.observe(.value, with: { (data) in
+                        let mess: MessFireBase = MessFireBase(snapshot: data)
+                        print(mess)
+                    })
+                })
+            }
+        }
     }
     
     private func sendImageToFirebase() {

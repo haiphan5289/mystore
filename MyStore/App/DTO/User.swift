@@ -73,3 +73,25 @@ struct ProductsFirebase {
         self.arrayImage = tem?["arrayImage"] as? [String]
     }
 }
+struct MessFireBase {
+    let fromID: String?
+    let mess: String?
+    let time: NSNumber?
+    var toID: String?
+    
+    init(fromID: String, mess: String, time: NSNumber, toID :String) {
+        self.fromID = fromID
+        self.mess = mess
+        self.time = time
+        self.toID = toID
+    }
+    
+    init(snapshot: DataSnapshot) {
+        let tem = snapshot.value as? [String:Any]
+        self.fromID = tem?["fromID"] as? String
+        self.mess = tem?["mess"] as? String
+        self.time = tem?["time"] as? NSNumber
+        self.toID = tem?["toID"] as? String
+    }
+    
+}
