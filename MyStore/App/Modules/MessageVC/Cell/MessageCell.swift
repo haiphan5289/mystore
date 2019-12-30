@@ -10,6 +10,7 @@ import UIKit
 
 class MessageCell: UICollectionViewCell {
 
+    @IBOutlet weak var tvMessage: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -30,6 +30,7 @@ class MessageVC: UIViewController {
     private let disposeBag = DisposeBag()
     private var imageData: Data!
     private var typeSend: SendMessType = .text
+    private var dataSource: [MessFireBase] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -127,7 +128,8 @@ class MessageVC: UIViewController {
                     let tableMess = fw.share.dataBase.child("Mess").child(keyMess)
                     tableMess.observe(.value, with: { (data) in
                         let mess: MessFireBase = MessFireBase(snapshot: data)
-                        print(mess)
+                        self.dataSource.append(mess)
+                        self.collectionView.reloadData()
                     })
                 })
             }
@@ -151,18 +153,44 @@ class MessageVC: UIViewController {
             self.userAdmin = UserFireBase(snapshot: data)
         }
     }
+    
+    private func estimateText(text: String) -> CGRect {
+        let size = CGSize(width: UIScreen.main.bounds.width - 150, height: 1000)
+        let option = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: text).boundingRect(with: size,
+                                                     options: option,
+                                                     attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)],
+                                                     context: nil)
+    }
 }
 
 extension MessageVC: UICollectionViewDelegate {
 }
+extension MessageVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //get height text
+        let item = self.dataSource[indexPath.row]
+        let height = estimateText(text: item.mess ?? "").height + 20
+        let width = UIScreen.main.bounds.width
+        return CGSize(width: width, height: height)
+    }
+}
 extension MessageVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return self.dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MessageCell
-        cell.backgroundColor = .red
+        let item = self.dataSource[indexPath.row]
+        cell.tvMessage.text = item.mess
+        if let currentUser = Auth.auth().currentUser {
+            if currentUser.uid == item.fromID {
+                cell.backgroundColor = .brown
+            } else {
+                cell.backgroundColor = .red
+            }
+        }
         return cell
         
     }
