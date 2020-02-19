@@ -62,6 +62,8 @@
 		52520E0A23A7D2590036A87D /* HomeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52520E0823A7D2590036A87D /* HomeDetailVC.xib */; };
 		52520E1323A91E6F0036A87D /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52520E1123A91E6F0036A87D /* HomeDetailCell.swift */; };
 		52520E1423A91E6F0036A87D /* HomeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52520E1223A91E6F0036A87D /* HomeDetailCell.xib */; };
+		526C29FC23D9554D00B19B0E /* GiftAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C29FA23D9554D00B19B0E /* GiftAllVC.swift */; };
+		526C29FD23D9554D00B19B0E /* GiftAllVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526C29FB23D9554D00B19B0E /* GiftAllVC.xib */; };
 		527AED3323869AAC00FCEF57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */; };
 		527B64DD23AD063900CF3397 /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B64DB23AD063900CF3397 /* MessageVC.swift */; };
 		527B64DE23AD063900CF3397 /* MessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527B64DC23AD063900CF3397 /* MessageVC.xib */; };
@@ -142,6 +144,8 @@
 		52520E0823A7D2590036A87D /* HomeDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailVC.xib; sourceTree = "<group>"; };
 		52520E1123A91E6F0036A87D /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
 		52520E1223A91E6F0036A87D /* HomeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailCell.xib; sourceTree = "<group>"; };
+		526C29FA23D9554D00B19B0E /* GiftAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftAllVC.swift; sourceTree = "<group>"; };
+		526C29FB23D9554D00B19B0E /* GiftAllVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftAllVC.xib; sourceTree = "<group>"; };
 		527AED3223869AAC00FCEF57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		527B64DB23AD063900CF3397 /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
 		527B64DC23AD063900CF3397 /* MessageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageVC.xib; sourceTree = "<group>"; };
@@ -228,8 +232,7 @@
 				52402C3E238D74410056DFE6 /* Profile */,
 				52436B8223910E020067639A /* PostProduct */,
 				527B64DA23AD05F300CF3397 /* MessageVC */,
-				527B64DB23AD063900CF3397 /* MessageVC.swift */,
-				527B64DC23AD063900CF3397 /* MessageVC.xib */,
+				526C29F923D9553100B19B0E /* GiftAll */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -410,9 +413,20 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		526C29F923D9553100B19B0E /* GiftAll */ = {
+			isa = PBXGroup;
+			children = (
+				526C29FA23D9554D00B19B0E /* GiftAllVC.swift */,
+				526C29FB23D9554D00B19B0E /* GiftAllVC.xib */,
+			);
+			path = GiftAll;
+			sourceTree = "<group>";
+		};
 		527B64DA23AD05F300CF3397 /* MessageVC */ = {
 			isa = PBXGroup;
 			children = (
+				527B64DB23AD063900CF3397 /* MessageVC.swift */,
+				527B64DC23AD063900CF3397 /* MessageVC.xib */,
 				527B64E323AD0C7400CF3397 /* Cell */,
 			);
 			path = MessageVC;
@@ -548,6 +562,7 @@
 				52436B95239258E30067639A /* PostProductCell.xib in Resources */,
 				52F6F269238965600039C946 /* HomeController.xib in Resources */,
 				520557DD236EDA9000507025 /* LoginStoryBoard.storyboard in Resources */,
+				526C29FD23D9554D00B19B0E /* GiftAllVC.xib in Resources */,
 				527B64E223AD0C6E00CF3397 /* MessageCell.xib in Resources */,
 				520557CA236ED53600507025 /* Main.storyboard in Resources */,
 				52F6F26D238966B30039C946 /* HomeCell.xib in Resources */,
@@ -644,6 +659,7 @@
 				52056C732380515900993CE5 /* LoginScreenRouter.swift in Sources */,
 				52436B8C23910E270067639A /* PostProductVC.swift in Sources */,
 				520557E7236EE54A00507025 /* Localize.swift in Sources */,
+				526C29FC23D9554D00B19B0E /* GiftAllVC.swift in Sources */,
 				52F6F25B238946740039C946 /* TabbarBuilder.swift in Sources */,
 				520557C7236ED53600507025 /* ViewController.swift in Sources */,
 				520557F5236EFEA800507025 /* Constant.swift in Sources */,
